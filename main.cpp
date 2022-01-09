@@ -1,6 +1,6 @@
 #include "AlgorithmX.h"
 #include "DancingLinks.h"
-#include "SudokuCover.h"
+#include <chrono>
 #include <iostream>
 
 void printSudoku(const uint32_t sudoku[9][9])
@@ -35,13 +35,21 @@ int main()
 
     uint32_t solution[9][9] = {};
 
+    auto start = std::chrono::high_resolution_clock::now();
     if (AlgorithmX::solveSudoku(sudoku, solution))
     {
+        auto duration = std::chrono::high_resolution_clock::now() - start;
+        std::cout << "Duration " << std::chrono::duration_cast<std::chrono::milliseconds>(duration) << "\n";
+
         printSudoku(solution);
     }
 
+    start = std::chrono::high_resolution_clock::now();
     if (DancingLinks::solveSudoku(sudoku, solution))
     {
+        auto duration = std::chrono::high_resolution_clock::now() - start;
+        std::cout << "Duration " << std::chrono::duration_cast<std::chrono::milliseconds>(duration) << "\n";
+
         printSudoku(solution);
     }
 }
