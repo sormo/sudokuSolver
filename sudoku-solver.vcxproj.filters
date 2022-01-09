@@ -3,6 +3,8 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="AlgorithmX.cpp" />
+    <ClCompile Include="DancingLinks.cpp" />
+    <ClCompile Include="Common.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SudokuCover.py" />
@@ -10,5 +12,7 @@
   <ItemGroup>
     <ClInclude Include="SudokuCover.h" />
     <ClInclude Include="AlgorithmX.h" />
+    <ClInclude Include="DancingLinks.h" />
+    <ClInclude Include="Common.h" />
   </ItemGroup>
 </Project>

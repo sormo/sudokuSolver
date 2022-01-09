@@ -16,10 +16,10 @@ namespace AlgorithmX
 
     bool solveSudoku(const uint32_t sudoku[9][9], uint32_t solvedSudoku[9][9]);
 
-    namespace detail
+    namespace Detail
     {
         template<size_t ROWS, size_t COLS>
-        void applyRow(const bool matrix[ROWS][COLS], size_t row, size_t col, std::set<size_t>& removedRows, std::set<size_t>& removedCols)
+        void applyRow(const bool matrix[ROWS][COLS], size_t row, std::set<size_t>& removedRows, std::set<size_t>& removedCols)
         {
             for (size_t remCol = 0; remCol < COLS; remCol++)
             {
@@ -73,7 +73,7 @@ namespace AlgorithmX
                         // now :
                         // all columns which has set this row will be satisifed
                         // all rows which are set in satisfied columns, can't be used
-                        applyRow<ROWS, COLS>(matrix, row, col, newRemovedRows, newRemovedCols);
+                        applyRow<ROWS, COLS>(matrix, row, newRemovedRows, newRemovedCols);
 
                         if (auto result = algorithmX<ROWS, COLS>(matrix, newRemovedRows, newRemovedCols, solution))
                             return result;

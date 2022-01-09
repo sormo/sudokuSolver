@@ -45,7 +45,7 @@ def generateSudokuCoverMatrix():
 def printMatrixToFile(file, matrix):
     print('constexpr size_t COL_COUNT = 9 * 9 * 4;', file=file)
     print('constexpr size_t ROW_COUNT = 9 * 9 * 9;', file=file)
-    print('constexpr bool MatrixCover[ROW_COUNT][COL_COUNT] =', file=file)
+    print('constexpr bool SudokuCover[ROW_COUNT][COL_COUNT] =', file=file)
     print('{', file=file)
     for r in matrix:
         print('    { ' + ','.join([str(x) for x in r]) + ' },', file=file)

@@ -1,4 +1,6 @@
 #include "AlgorithmX.h"
+#include "DancingLinks.h"
+#include "SudokuCover.h"
 #include <iostream>
 
 void printSudoku(const uint32_t sudoku[9][9])
@@ -29,10 +31,17 @@ int main()
         {0,0,0,0,6,0,1,0,0}
     };
 
-    uint32_t solution[9][9];
+    printSudoku(sudoku);
+
+    uint32_t solution[9][9] = {};
+
     if (AlgorithmX::solveSudoku(sudoku, solution))
     {
-        printSudoku(sudoku);
+        printSudoku(solution);
+    }
+
+    if (DancingLinks::solveSudoku(sudoku, solution))
+    {
         printSudoku(solution);
     }
 }
